@@ -1,6 +1,6 @@
 package logic
 
-data class Cell(var isAlive: Boolean) {
+data class Cell(var state: State) {
 
 	val neighbors: MutableList<Cell> = mutableListOf()
 
@@ -23,20 +23,22 @@ data class Cell(var isAlive: Boolean) {
 		return others.size == this.neighbors.size
 	}
 
-	fun evolve(livingNeighborsCount: Int = neighbors.count { it.isAlive }) {
-		isAlive = when (livingNeighborsCount) {
-			0, 1 -> false
-			2 -> isAlive
-			3 -> true
-			else -> false
+	fun isAlive(): Boolean = (state == State.ALIVE)
+
+	fun evolve(livingNeighborsCount: Int = neighbors.count { it.isAlive() }) {
+		state = when (livingNeighborsCount) {
+			0, 1 -> State.DEAD
+			2 -> state
+			3 -> State.ALIVE
+			else -> State.DEAD
 		}
 	}
 
 	fun live() {
-		isAlive = true
+		state = State.ALIVE
 	}
 
 	fun die() {
-		isAlive = false
+		state = State.DEAD
 	}
 }

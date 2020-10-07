@@ -8,46 +8,46 @@ class CellTest {
 
 	@Test
 	fun cellShouldDieWhenUnderpopulation() {
-		val cell = Cell(true)
+		val cell = Cell(State.ALIVE)
 
 		cell.evolve()
 
-		assertFalse(cell.isAlive)
+		assertFalse(cell.isAlive())
 	}
 
 	@Test
 	fun cellShouldLiveWhenTwoOrThreeLivingNeighbors() {
-		val cell = Cell(true)
-		cell.neighbors.add(Cell(true))
-		cell.neighbors.add(Cell(true))
+		val cell = Cell(State.ALIVE)
+		cell.neighbors.add(Cell(State.ALIVE))
+		cell.neighbors.add(Cell(State.ALIVE))
 
 		cell.evolve()
 
-		assertTrue(cell.isAlive)
+		assertTrue(cell.isAlive())
 	}
 
 	@Test
 	fun cellShouldDieWhenOverpopulation() {
-		val cell = Cell(true)
-		cell.neighbors.add(Cell(true))
-		cell.neighbors.add(Cell(true))
-		cell.neighbors.add(Cell(true))
-		cell.neighbors.add(Cell(true))
+		val cell = Cell(State.ALIVE)
+		cell.neighbors.add(Cell(State.ALIVE))
+		cell.neighbors.add(Cell(State.ALIVE))
+		cell.neighbors.add(Cell(State.ALIVE))
+		cell.neighbors.add(Cell(State.ALIVE))
 
 		cell.evolve()
 
-		assertFalse(cell.isAlive)
+		assertFalse(cell.isAlive())
 	}
 
 	@Test
 	fun cellShouldRebornWhenThreeLivingNeighbors() {
-		val cell = Cell(false)
-		cell.neighbors.add(Cell(true))
-		cell.neighbors.add(Cell(true))
-		cell.neighbors.add(Cell(true))
+		val cell = Cell(State.DEAD)
+		cell.neighbors.add(Cell(State.ALIVE))
+		cell.neighbors.add(Cell(State.ALIVE))
+		cell.neighbors.add(Cell(State.ALIVE))
 
 		cell.evolve()
 
-		assertTrue(cell.isAlive)
+		assertTrue(cell.isAlive())
 	}
 }

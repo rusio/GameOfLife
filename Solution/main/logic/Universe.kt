@@ -3,7 +3,7 @@ package logic
 class Universe(val height: Int, val width: Int) {
 
 	val cells = Array(height) {
-		Array(width) { Cell(false) }
+		Array(width) { Cell(State.DEAD) }
 	}
 
 	init {
@@ -23,7 +23,7 @@ class Universe(val height: Int, val width: Int) {
 		for (row in 0 until height) {
 			for (column in 0 until width) {
 				val cell = cells[row][column]
-				livingNeighborCounts[row][column] = cell.neighbors.count { neighbor -> neighbor.isAlive }
+				livingNeighborCounts[row][column] = cell.neighbors.count { neighbor -> neighbor.isAlive() }
 			}
 		}
 

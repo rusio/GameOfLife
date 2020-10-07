@@ -41,8 +41,8 @@ class UniverseTest {
 
 		universe.evolve()
 
-		assertFalse(universe.cellAt(1, 1).isAlive)
-		assertFalse(universe.cellAt(2, 2).isAlive)
+		assertFalse(universe.cellAt(1, 1).isAlive())
+		assertFalse(universe.cellAt(2, 2).isAlive())
 	}
 
 	@Test
@@ -54,9 +54,9 @@ class UniverseTest {
 
 		universe.evolve()
 
-		assertTrue(universe.cellAt(1, 1).isAlive)
-		assertTrue(universe.cellAt(2, 1).isAlive)
-		assertTrue(universe.cellAt(2, 2).isAlive)
+		assertTrue(universe.cellAt(1, 1).isAlive())
+		assertTrue(universe.cellAt(2, 1).isAlive())
+		assertTrue(universe.cellAt(2, 2).isAlive())
 	}
 
 	@Test
@@ -70,11 +70,11 @@ class UniverseTest {
 
 		universe.evolve()
 
-		assertFalse(universe.cellAt(0, 0).isAlive)
-		assertFalse(universe.cellAt(0, 2).isAlive)
-		assertFalse(universe.cellAt(1, 1).isAlive)
-		assertFalse(universe.cellAt(2, 0).isAlive)
-		assertFalse(universe.cellAt(2, 2).isAlive)
+		assertFalse(universe.cellAt(0, 0).isAlive())
+		assertFalse(universe.cellAt(0, 2).isAlive())
+		assertFalse(universe.cellAt(1, 1).isAlive())
+		assertFalse(universe.cellAt(2, 0).isAlive())
+		assertFalse(universe.cellAt(2, 2).isAlive())
 	}
 
 	@Test
@@ -86,11 +86,10 @@ class UniverseTest {
 
 		universe.evolve()
 
-		assertFalse(universe.cellAt(0, 0).isAlive)
-		assertFalse(universe.cellAt(0, 2).isAlive)
-		assertFalse(universe.cellAt(2, 0).isAlive)
+		assertFalse(universe.cellAt(0, 0).isAlive())
+		assertFalse(universe.cellAt(0, 2).isAlive())
+		assertFalse(universe.cellAt(2, 0).isAlive())
 
-		assertTrue(universe.cellAt(1, 1).isAlive)
+		assertTrue(universe.cellAt(1, 1).isAlive())
 	}
-
 }
