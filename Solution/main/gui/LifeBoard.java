@@ -13,16 +13,16 @@ import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
 
 /**
- * Board with Points that may be expanded (with automatic change of cell
+ * Board with Cells that may be expanded (with automatic change of cell
  * number) with mouse event listener
  */
-public class Canvas extends JComponent implements MouseInputListener, ComponentListener {
+public class LifeBoard extends JComponent implements MouseInputListener, ComponentListener {
 
 	private final int size = 14;
 
 	private Universe universe;
 
-	public Canvas(int length, int height) {
+	public LifeBoard(int length, int height) {
 		addMouseListener(this);
 		addComponentListener(this);
 		addMouseMotionListener(this);
@@ -113,9 +113,9 @@ public class Canvas extends JComponent implements MouseInputListener, ComponentL
 
 	@Override
 	public void componentResized(ComponentEvent e) {
-		int dlugosc = (this.getWidth() / size) + 1;
-		int wysokosc = (this.getHeight() / size) + 1;
-		initialize(dlugosc, wysokosc);
+		int length = (this.getWidth() / size) + 1;
+		int height = (this.getHeight() / size) + 1;
+		initialize(length, height);
 	}
 
 	@Override
