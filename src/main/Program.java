@@ -5,7 +5,7 @@ import javax.swing.SwingUtilities;
 
 public class Program extends JFrame {
 
-	private GuiPanel guiPanel;
+	private final GuiPanel guiPanel;
 
 	public Program() {
 		setTitle("Game of Life");
