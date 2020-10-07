@@ -40,6 +40,11 @@ class Universe(val height: Int, val width: Int) {
 	}
 
 	fun reset() {
-		// TODO
+		for (row in 0 until height) {
+			for (column in 0 until width) {
+				val cell = cells[row][column]
+				cell.die()
+			}
+		}
 	}
 }
